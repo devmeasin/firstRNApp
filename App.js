@@ -7,15 +7,18 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+import type { Node } from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
+  ToastAndroid
 } from 'react-native';
 
 import {
@@ -28,7 +31,7 @@ import {
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
+const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -61,34 +64,49 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+
+  const showToastWithGravityAndOffset = () => {
+    ToastAndroid.showWithGravityAndOffset(
+      "A wild toast appeared! emoji 😀😘🎉",
+      ToastAndroid.LONG,
+      ToastAndroid.TOP,
+      25,
+      50
+    );
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        // backgroundColor={backgroundStyle.backgroundColor}
+        translucent={true}
+        backgroundColor="transparent"
+        barStyle={'dark-content'}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        <View style={{ marginTop: 20, }}>
+          <Header />
+        </View>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit & Chill 😋 <Text style={styles.highlight}>App.js </Text> to change this & 
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
+          <Section title="Md Easin Islam">
+            <Text style={styles.highlight}>App.js 😋 Relation with code</Text>
           </Section>
           <LearnMoreLinks />
+
+
+          <View style={{ marginTop: 20, marginBottom: 30, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity
+              onPress={ () => showToastWithGravityAndOffset() }
+              style={styles.roundButton1}>
+              <Text style={[styles.sectionTitle , {color: 'white' , fontSize:18 }]  }>Click Me 😋</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -111,6 +129,14 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  roundButton1: {
+    width: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 15,
+    backgroundColor: '#37B24D',
   },
 });
 
