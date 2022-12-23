@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const LogIn = ({ navigation }) => {
+const LogIn = () => {
+
+    const navigation = useNavigation();
 
     return (
         <View>

@@ -2,10 +2,10 @@ import React from 'react';
 import { View } from 'react-native'
 import LogIn from '../../components/LogIn'
 
-const Login = ({navigation}) => {
+const Login = () => {
     return (
         <View>
-            <LogIn navigation={navigation}/>
+            <LogIn/>
         </View>
     )
 }
