@@ -4,7 +4,9 @@ import React from 'react'
 const SplashScreen = () => {
     return (
         <View>
+            <Text>Welcome to First App</Text>
             <Text>SplashScreen</Text>
+
         </View>
     )
 }
