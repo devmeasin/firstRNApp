@@ -6,16 +6,25 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screen/Home';
 import Login from './src/screen/Login';
+import SplashScreen from './src/screen/SplashScreen';
 import BottomTabs from './src/components/BottomTabs';
 
 
 const App = () => {
+
+  const [isSplash, setIsSplash] = useState(true);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSplash(false);
+    }, 5000);
+  }, []);
 
   const Stack = createNativeStackNavigator();
 
@@ -23,6 +32,10 @@ const App = () => {
 
     <NavigationContainer>
       <Stack.Navigator>
+        {
+          isSplash && <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
+        }
+
         <Stack.Screen name="BottomTabs" component={BottomTabs} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
@@ -32,6 +45,7 @@ const App = () => {
 
   );
 };
+
 
 
 export default App;
