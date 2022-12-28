@@ -32,7 +32,7 @@ const SplashScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    container: { height: ScreenHeight, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' },
+    container: { height: '100%', backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' },
     logo_wrapper: {
         width: 250,
         height: 250,
