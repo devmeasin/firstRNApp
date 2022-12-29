@@ -35,9 +35,9 @@ const BottomTabs = () => {
                 tabBarInactiveTintColor: 'gray',
             })}
         >
-            <Tab.Screen name="SplashScreen" component={SplashScreen}
-                options={{ headerShown: false }} />
             <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="SplashScreen" component={SplashScreen}
+                options={{ headerShown: false , tabBarStyle: { display: 'none' } }} />
             <Tab.Screen name="Login" component={Login} />
         </Tab.Navigator>
 
