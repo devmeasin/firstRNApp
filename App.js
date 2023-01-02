@@ -13,13 +13,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screen/Home';
 import Login from './src/screen/Login';
 import SplashScreen from './src/screen/SplashScreen';
-import BottomTabs from './src/components/BottomTabs';
+import BottomTabs from './src/components/Navigations/BottomNavigator';
 
 
 const App = () => {
 
   const [isSplash, setIsSplash] = useState(true);
-  
+
   useEffect(() => {
     setTimeout(() => {
       setIsSplash(false);

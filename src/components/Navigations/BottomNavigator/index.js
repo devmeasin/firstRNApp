@@ -3,9 +3,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home from '../../screen/Home';
-import Login from '../../screen/Login';
-import SplashScreen from '../../screen/SplashScreen';
+import Home from '../../../screen/Home';
+import Login from '../../../screen/Login';
+import SplashScreen from '../../../screen/SplashScreen';
 
 
 const BottomTabs = () => {
@@ -37,7 +37,7 @@ const BottomTabs = () => {
         >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="SplashScreen" component={SplashScreen}
-                options={{ headerShown: false , tabBarStyle: { display: 'none' } }} />
+                options={{ headerShown: false, tabBarStyle: { display: 'none' } }} />
             <Tab.Screen name="Login" component={Login} />
         </Tab.Navigator>
 
